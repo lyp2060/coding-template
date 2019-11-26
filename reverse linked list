@@ -1,0 +1,18 @@
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        pre = ListNode(0)
+        cur = head
+        pre.next = head
+        
+        if not cur:
+            return head
+        while cur.next:
+            mov = cur.next
+            cur.next = mov.next
+            mov.next = pre.next
+            pre.next = mov
+        return pre.next
